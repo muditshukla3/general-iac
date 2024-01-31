@@ -1,8 +1,8 @@
 resource "aws_launch_template" "server-launch-template" {
   name_prefix            = "${var.main_project_tag}-server-lt-"
-  image_id               = "ami-0ed9277fb7eb570c9"
-  instance_type          = "t2.micro"
-  key_name               = "Consul-S1"
+  image_id               = "${var.ec2-image-id}"
+  instance_type          = "${var.ec2-instance-type}"
+  key_name               = "${var.ec2-instance-key}"
   vpc_security_group_ids = [aws_security_group.ssh-sg.id,aws_security_group.http-allow.id]
 
   tag_specifications {

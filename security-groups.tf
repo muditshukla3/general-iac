@@ -21,6 +21,7 @@ resource "aws_security_group_rule" "allow-ssh-sg-rule" {
    description = "Allow SSH Traffic"
 }
 
+# Security Group for HTTP Connection
 resource "aws_security_group" "http-allow" {
   name_prefix = "${var.main_project_tag}-http-allow"
   description = "Firewall to allow http traffic only."
@@ -51,7 +52,7 @@ resource "aws_security_group_rule" "tcp_allow_outbound" {
   description       = "Allow any outbound traffic."
 }
 
-# ## Load balancer security group
+# Load balancer security group to allow HTTP traffic
 
 resource "aws_security_group" "load_balancer" {
   name_prefix = "${var.main_project_tag}-alb-sg"
