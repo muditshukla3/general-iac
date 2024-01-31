@@ -8,7 +8,7 @@ variable "main_project_tag" {
 variable "aws_default_region" {
   description = "The default region that all resources will be deployed into."
   type        = string
-  default     = "us-east-1"
+  default     = "ap-south-1"
 }
 
 variable "vpc_cidr" {
@@ -50,4 +50,23 @@ variable "server_max_count" {
   description = "The maximum number of servers."
   type        = number
   default     = 3
+}
+
+variable "ec2-image-id" {
+  description = "AMI Id"
+  type = string
+  default = "ami-00952f27cf14db9cd"
+}
+
+variable "ec2-instance-type" {
+  description = "Instance type of EC2"
+  type = string
+  default = "t2.micro" 
+}
+
+#make sure to create a key pair with following name if using
+variable "ec2-instance-key" {
+  description = "Key Name to be attached with EC2 instance"
+  type = string
+  default = "ap-south1-key" 
 }

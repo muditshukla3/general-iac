@@ -20,17 +20,14 @@ resource "aws_autoscaling_group" "test-server-asg" {
   health_check_type = "EC2"
   termination_policies = ["OldestLaunchTemplate"]
   wait_for_capacity_timeout = 0
-
- tags = [
-    {
-      key = "Name"
-      value = "${var.main_project_tag}-server"
-      propagate_at_launch = true
-    },
-    {
-      key = "Project"
-      value = var.main_project_tag
-      propagate_at_launch = true
-    }
-  ]
+  tag {
+    key = "Name"
+    value = "${var.main_project_tag}-server"
+    propagate_at_launch = true
+  }
+  tag {
+    key = "Project"
+    value = var.main_project_tag
+    propagate_at_launch = true
+  }
 }
