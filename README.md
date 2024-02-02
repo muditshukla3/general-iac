@@ -2,11 +2,12 @@
 This repository contains terraform scripts for following:
 
 - Create a VPC
-- Attach a Internet Gateway
+- Attach an Internet Gateway
 - Create a Custom Route Table
 - Create a subnet and attach the route table
 - Create a security group to allow port 22, 80, 443
 - Create Auto scaling group using launch templates.
+- Create Cloud watch alarm to scale up and scale down.
 - Create Application load balancer.
 - Create EC2 instances backed by auto scaling group running web server.
 

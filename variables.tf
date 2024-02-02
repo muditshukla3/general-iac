@@ -43,7 +43,7 @@ variable "server_desired_count" {
 variable "server_min_count" {
   description = "The minimum number of servers."
   type        = number
-  default     = 2
+  default     = 1
 }
 
 variable "server_max_count" {
