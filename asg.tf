@@ -31,3 +31,20 @@ resource "aws_autoscaling_group" "test-server-asg" {
     propagate_at_launch = true
   }
 }
+
+resource "aws_autoscaling_policy" "web_policy_up" {
+  name = "web_policy_up"
+  scaling_adjustment = 1
+  adjustment_type = "ChangeInCapacity"
+  cooldown = 300
+  autoscaling_group_name = aws_autoscaling_group.test-server-asg.name
+}
+
+resource "aws_autoscaling_policy" "web_policy_down" {
+  name = "web_policy_down"
+  scaling_adjustment = -1
+
+  adjustment_type = "ChangeInCapacity"
+  cooldown = 300
+  autoscaling_group_name = aws_autoscaling_group.test-server-asg.name
+}
